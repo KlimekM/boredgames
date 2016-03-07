@@ -8,6 +8,7 @@ class CreateGames < ActiveRecord::Migration
       t.string :publisher
       t.string :play_time
       t.string :description
+      t.integer :creator_id
 
       t.timestamps null: false
     end
