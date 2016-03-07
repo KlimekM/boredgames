@@ -7,6 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <h1>Bored Gamez</h1>
+  <p>Placeholder SearchBar</p>
+  <ul>
+      <li> <%= link_to "Home", root_path %>
+    <% if logged_in? %>
+      <li><%= link_to current_user.username, user_path %></li>
+      <li><%= link_to "Logout", session_path %></li>
+    <% else %>
+      <li><%= link_to "Login", new_session_path %></li>
+      <li><%= link_to "Register", new_user_path %></li>
+    <% end %>
+  </ul>
+</header>
 
 <%= yield %>
 
