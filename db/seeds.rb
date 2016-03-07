@@ -554,3 +554,8 @@ users = User.all
 comments = 200.times.map do
   Comment.create!(commenter_id: users.sample.id, game_id: games.sample.id, text: Faker::Hacker.say_something_smart)
 end
+
+
+votes = 300.times.map do
+  Vote.create!(voter_id: users.sample.id, game_id: games.sample.id, value: [-1,1,0].sample)
+end
