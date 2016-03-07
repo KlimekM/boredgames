@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+
+  resources :users, except: :index
+  resources :games do
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+  end
+
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :votes, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
+
+  post 'games/:game_id/collections' => 'collections#create'
+  delete 'games/:game_id/collections/:id' => 'collections#destroy'
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
