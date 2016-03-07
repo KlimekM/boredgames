@@ -1,4 +1,6 @@
-<% form_for user_path do |f| %>
+
+
+<%= form_for @user, url: users_path do |f| %>
   <%= f.label :first_name %>:
   <%= f.text_field :first_name %><br/>
 
@@ -9,7 +11,7 @@
   <%= f.text_field :username %><br/>
 
   <%= f.label :password %>:
-  <%= f.text_field :password %><br/>
+  <%= f.password_field :password %><br/>
 
-  <%= f.submit %>
+  <%= f.submit "Sign up" %>
 <% end %>
