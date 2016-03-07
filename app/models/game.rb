@@ -5,4 +5,8 @@ class Game < ActiveRecord::Base
   has_many :categories, through: :categorizations
   has_many :votes
   has_many :comments
+
+  validates :name, :description
+  validates :release_year, length: { is: 4 }
+
 end
