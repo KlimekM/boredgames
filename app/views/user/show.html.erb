@@ -1,0 +1,29 @@
+<div id="profile">
+	<div id="profile-head">
+		<p><img src=""></p>
+		<p><%= @user.first_name %> <%= @user.last_name %></p>
+		<p><%= @user.username %></p>
+	</div>
+
+	<div id="profile-friends">
+		<h2>Friends</h2>
+		<ul>
+			<% @user.friends.each do |friend| %>
+			<li><%= friend.username %></li>
+			<% end %>
+		</ul>
+	</div>
+
+
+	<div id="profile-games">
+		<h2>Games</h2>
+		<% @user.games.each do |game| %>
+		<li>
+			<h3><img src="<%= game.image_url %>"><%= game.name %></h3>
+			<p><strong>Info:</strong>   <%= game.description %></p>
+			<p>Player Range:  <%= game.player_range %></p>
+			<p>Play Time:  <%= game.play_time %></p>
+		</li>
+		<% end %>
+	</div>
+</div>

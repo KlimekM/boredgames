@@ -9,6 +9,12 @@ class UsersController < ApplicationController
 
   def show
     #user profile page
+    @user = User.find(params[:id])
+    if @user 
+      render :'/user/show'
+    else
+      redirect '/'
+    end
   end
 
   def edit
