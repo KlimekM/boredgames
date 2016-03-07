@@ -10,7 +10,7 @@
 # STILL DO DO: have password be passed in once we have the "has secure password" stuff set up, right now it will break
 
 users = 30.times.map do
-  User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
+  User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: 'password')
 end
 
 all_users = []
