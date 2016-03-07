@@ -614,3 +614,9 @@ tags_for_seeding =[
 {name: "Worker Placement"}]
 
 Tag.create!(tags_for_seeding)
+
+tags = Tag.all
+
+100.times do
+  Tagging.create(game_id: games.sample.id, tag_id: tags.sample.id)
+end
