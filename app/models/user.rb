@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :comments
+  has_many :comments, foreign_key: :commenter_id
   has_many :votes
   has_many :collections
   has_many :games, through: :collections
@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   has_many :friendships, foreign_key: :friend_1_id
   has_many :friends, through: :friendships, source: :friend
 
-  validates :username, :first_name, :last_name { presence: true}
+  validates :username, :first_name, :last_name, { presence: true}
   has_secure_password
 end
