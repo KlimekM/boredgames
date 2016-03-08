@@ -1,30 +1,26 @@
-== README
+#boredGameZ
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+Current Contributors: Alana Hanson, Tyler McKenzie, Eddie Glenn, Mike Klimek, Ray Curran, Taylor Swift
+
 Things you may want to cover:
 
 * Ruby version
-
-* System dependencies
+  * Ruby version 2.0.0
 
 * Configuration
+  * bundle install 
 
 * Database creation
+  * be rake db:create
+  * be rake db:migreate
+  * be rake db:create
 
-* Database initialization
+* How to run the test suite  
+  * be rake
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.  
+#Schema
 
 ![Schema](Schema.png)
