@@ -16,6 +16,12 @@ class UsersController < ApplicationController
 
   def show
     #user profile page
+    @user = User.find(params[:id])
+    if @user 
+      render 'show'
+    else
+      redirect_to '/'
+    end
   end
 
   def edit

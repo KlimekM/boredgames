@@ -1,14 +1,32 @@
 <div>
-<img src="<%= game.image_url%>" alt="game_image">
-<h3><%= game.name %></h3>
-<p>Players: <%= game.player_range %></p>
-<p>Play Time: <%= game.play_time %></p>
-<button>Expand</button>
-<button>Upvote</button>
-<button>Downvote</button>
-<button>Add to Collection</button>
+	<h3><a href="#openModal-<%= game.name %>"><img src="<%= game.image_url %>"><%= game.name %></a></h3>
+	<p>Players: <%= game.player_range %></p>
+	<p>Play Time: <%= game.play_time %></p>
+	<button>Expand</button>
+	<button>Upvote</button>
+	<button>Downvote</button>
+	<button>Add to Collection</button>
 </div>
 
+<div id="openModal-<%= game.name %>" class="modalDialog">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<p><img src="<%= game.image_url %>"></p>
+		<h3><%= game.name %></h3>
+		<p>Player Range: <%= game.player_range %></p>
+		<p>Play Time: <%= game.play_time %></p>
+		<p><strong>Info:</strong><%= game.description %></p>
+		<p>Categories: 
+			<% game.categories.each do |category| %>
+			<a href="#"><%= category.name %></a>
+			<% end %>
+		</p>
+		<p>Tags: <% game.tags.each do |tag| %>
+			<a href="#"><%= tag.name %></a>
+			<% end %></p>
+		</div>
+	</div>
+</div>
 <!-- to do: expand feature, figure out upvote, downvote, and cancel vote features -->
 
 <!--
