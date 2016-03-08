@@ -5,9 +5,8 @@
 	<p>Play Time: <%= game.play_time %></p>
 	<a href="#openModal-<%= game.name %>">Expand</a>
 
-	<%= render "upvote", game: game %>
-	<%= render "downvote", game: game %>
-	<%= render "add_to_collection", game: game %>
+	<%= render "games/vote", game: game %>
+	<%= render "games/add_to_collection", game: game %>
 
 		<!-- <button>Add to Collection</button> -->
 </div>
