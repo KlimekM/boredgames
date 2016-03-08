@@ -10,7 +10,7 @@
 # STILL DO DO: have password be passed in once we have the "has secure password" stuff set up, right now it will break
 
 users = 30.times.map do
-  User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: 'password')
+  User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: 'password', image_url: ["https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/alana.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/catie.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/dan.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/eddiy.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/marshall.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/jim.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/jelliotartz.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/ray.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/mikevolley.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/mike.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/meagan.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/tyler.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/tiff.jpg", "https://raw.githubusercontent.com/tomorrow-lauren/lauren-doodle/master/jpg/sabri.jpg"].sample)
 end
 
 all_users = []
