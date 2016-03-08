@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   def index
+    @vote = Vote.new
     @popular_games = Game.popular_games.slice(0,24)
     @newest_games = Game.order(created_at: :desc).limit(24)
   end
