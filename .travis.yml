@@ -1,8 +1,10 @@
 language: ruby
 rvm:
- - "1.8.7"
- - "1.9.2"
- - "1.9.3"
+ - "2.0.0"
  - rbx
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
+
+before_install:
+  - gem install bundler -v '= 1.5.1'
+  - gem install i18n -v '0.7.0'
