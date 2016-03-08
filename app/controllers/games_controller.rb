@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   def index
+    @vote = Vote.new
     @popular_games = Game.popular_games.slice(0,24)
     @newest_games = Game.order(created_at: :desc).limit(24)
   end
@@ -59,6 +60,11 @@ class GamesController < ApplicationController
       @game.destroy
     end
     redirect_to root_path
+  end
+
+  def search
+    @found_games = Game.where('name LIKE ?', "%#{params[:query]}%").all
+    puts @found_games
   end
 
   private
