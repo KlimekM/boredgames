@@ -10,4 +10,15 @@ class Game < ActiveRecord::Base
   validates :name, :description, {presence: true}
   validates :release_year, length: { is: 4 }
 
+  def points #write test
+    votes.reduce(0) do |total, vote|
+      total += vote.value
+    end
+  end
+
+  def self.popular_games
+    Game.all.sort do |game_a, game_b|
+      game_b.points <=> game_a.points
+    end
+  end
 end
