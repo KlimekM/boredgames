@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       render 'show'
     else
-      @user
       render 'new'
     end
 
@@ -38,6 +37,7 @@ class UsersController < ApplicationController
     #delete user
   end
 
+  private
     def person_params
       params.require(:user).permit(:first_name, :last_name, :username, :image_url, :password)
     end
