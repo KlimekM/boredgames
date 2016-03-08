@@ -1,0 +1,4 @@
+<%= form_tag("/votes", method: "post") do %>
+  <%= hidden_field_tag(:vote_value, -1) %>
+  <%= submit_tag("Downvote") %>
+<% end %>
