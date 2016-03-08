@@ -16,5 +16,9 @@ describe User do
     it 'has a username' do
       expect(user.username).to eq('rpcurr')
     end
+
+    it 'generates a password digest when a user is initialized' do
+      expect(user.password_digest).to_not eq(nil)
+    end
   end
 end
