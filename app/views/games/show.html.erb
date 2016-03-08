@@ -37,6 +37,8 @@
       <% @game.comments.each do |comment| %>
       <li class="norm-game-font"><%= comment.text %>    by: <%= comment.commenter.username %><% if comment.commenter_id == current_user.id %>
           <%= link_to "Edit", edit_game_comment_path(@game, comment) %>
+          <%= link_to 'Delete', [@game, comment],
+              method: :delete %>
         <% end %>
       </li>
       <% end %>
