@@ -26,11 +26,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #form to edit user information
+    @user = User.find(params[:id])
   end
 
   def update
-    #PUT changes to user info
+    @user = User.find(params[:id])
+    if @user.update(person_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def destroy
