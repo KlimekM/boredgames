@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe User do
-  let(:user) {User.new(first_name: 'ray', last_name: 'curran', username: 'rpcurr', password: 'password')}
+  let(:user) {User.new(first_name: 'ray', last_name: 'curran', username: 'rpcurr', password: 'password', image_url: 'http://www.google.com')}
 
   describe 'initialize' do
     it 'has a first name' do
@@ -19,6 +19,10 @@ describe User do
 
     it 'generates a password digest when a user is initialized' do
       expect(user.password_digest).to_not eq(nil)
+    end
+
+    it 'has an image url when a user is initialized' do
+      expect(user.image_url).to eq('http://www.google.com')
     end
   end
 end
