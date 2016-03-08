@@ -9,13 +9,13 @@
       <p><%= @game.player_range %></p>
       <p><%= @game.play_time %></p>
       <ul>
-        <li><b>Categories:</b></li>
+        <h3><b>Categories:</b></h3>
         <% @game.categories.each do |category| %>
         <li><%= category.name %></li>
         <% end %>
       </ul>
       <ul>
-        <li><b>Mechanics:</b></li>
+        <h3><b>Mechanics:</b></h3>
         <% @game.tags.each do |tag| %>
         <li><%= tag.name %></li>
         <% end %>
@@ -27,7 +27,7 @@
   </div>
   <div>
     <ul>
-      <li><b>Comments:</b></li>
+      <h3><b>Comments:</b></h3>
       <% @game.comments.each do |comment| %>
         <li><%= comment.text %></li>
       <% end %>
