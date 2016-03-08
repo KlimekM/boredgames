@@ -1,8 +1,8 @@
 <div>
-	<h3><a href="#openModal-<%= game.name %>"><img src="<%= game.image_url %>"><%= game.name %></a></h3>
+	<h3><img src="<%= game.image_url %>"><%= game.name %></h3>
 	<p>Players: <%= game.player_range %></p>
 	<p>Play Time: <%= game.play_time %></p>
-	<button>Expand</button>
+	<a href="#openModal-<%= game.name %>">Expand</a>
 	<button>Upvote</button>
 	<button>Downvote</button>
 	<button>Add to Collection</button>
