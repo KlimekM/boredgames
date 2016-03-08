@@ -1,6 +1,9 @@
 class CollectionsController < ApplicationController
   def create
-    #post new record to user's collection
+    game = Game.find(params[:game_id])
+    user = User.find(params[:user_id])
+    user.games << game
+    redirect_to '/'
   end
 
   def destroy
