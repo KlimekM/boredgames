@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
   def new
-    #form to register new user
+    @user = User.new
   end
 
   def create
-    #POST new user to database
+    @user = User.new(person_params)
+
+    if @user.save
+      render 'show'
+    else
+
+    end
+
   end
 
   def show
@@ -22,4 +29,8 @@ class UsersController < ApplicationController
   def destroy
     #delete user
   end
+
+    def person_params
+      params.require(:user).permit(:first_name, :last_name, :username, :password)
+    end
 end
