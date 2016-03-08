@@ -29,14 +29,22 @@
     </div>
   </div>
 </div>
+<% if @game.comments.length > 0 %>
 <div class="row">
   <div class="col-md-6 col-md-offset-4 center-in-div">
     <ul>
       <h3><b>Comments:</b></h3>
       <% @game.comments.each do |comment| %>
-      <li class="norm-game-font"><%= comment.text %>    by: <%= comment.commenter.username %></li>
+      <li class="norm-game-font"><%= comment.text %>    by: <%= comment.commenter.username %><% if comment.commenter_id == current_user.id %>
+          <%= link_to "Edit", edit_game_comment_path(@game, comment) %>
+          <%= link_to 'Delete', [@game, comment],
+              method: :delete %>
+        <% end %>
+      </li>
       <% end %>
     </ul>
   </div>
 </div>
+<% end %>
+<%= link_to "Add Comment", new_game_comment_path(@game) %>
 </div>
