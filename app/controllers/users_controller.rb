@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       render 'show'
     else
-      @user
       render 'new'
     end
 
@@ -27,17 +26,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #form to edit user information
+    @user = User.find(params[:id])
   end
 
   def update
-    #PUT changes to user info
+    @user = User.find(params[:id])
+    if @user.update(person_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     #delete user
   end
 
+  private
     def person_params
       params.require(:user).permit(:first_name, :last_name, :username, :image_url, :password)
     end
