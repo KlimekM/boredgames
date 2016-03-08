@@ -1,8 +1,0 @@
-<% if current_user && game.votes.find_by(voter_id: current_user.id) %>
-  <% vote = Vote.find_by(:voter_id => current_user.id, :game_id => game.id) %>
-    <%= button_to "Undo vote", "votes/#{vote.id}", method: "delete", params: {user_id: current_user.id, game_id: game.id} %>
-<% elsif current_user %>
-  <%= button_to "Upvote", votes_path, params: {user_id: current_user.id, game_id: game.id, value: 1} %>
-<% end %>
-
-
