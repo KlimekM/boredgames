@@ -6,4 +6,8 @@ module SessionsHelper
   def logged_in?
     current_user != nil
   end
+
+  def authorized(creator_id)
+    current_user.id == creator_id
+  end
 end

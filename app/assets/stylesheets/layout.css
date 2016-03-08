@@ -107,3 +107,7 @@ table th {
   text-decoration: underline;
 }
 
+option {
+  color: black;
+}
+
