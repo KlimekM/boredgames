@@ -1,5 +1,6 @@
 <div>
-	<h3><img src="<%= game.image_url %>"><%= game.name %></h3>
+	<h3><a href="<%= game_path(game) %>"><img src="<%= game.image_url %>"></a>
+		<%= game.name %></h3>
 	<p>Rating: <%= game.points %></p>
 	<p>Players: <%= game.player_range %></p>
 	<p>Play Time: <%= game.play_time %></p>
