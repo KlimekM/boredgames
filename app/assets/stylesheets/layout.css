@@ -1,0 +1,45 @@
+.bigger-nav {
+  font-size: 30px;
+}
+
+header {
+  background-color: #222222;
+  height: 100px;
+}
+
+nav {
+  height: 95px;
+}
+
+nav p {
+  display: inline-block;
+}
+
+nav h1 {
+  display: inline-block;
+  font-size: 75px;
+}
+
+#no-top-margin {
+  margin-top: 0;
+}
+
+.center-in-div {
+  text-align: center;
+  border: 1px solid #00A379;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.game-picture {
+  padding: 30px;
+  margin-top: 20px;
+}
