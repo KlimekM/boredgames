@@ -28,14 +28,28 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+
   end
 
   def edit
-    #edit game form
+    @game = Game.find(params[:id])
+    if authorized(@game.creator_id)
+      render 'edit'
+    else
+      # add flash "you can't do that"
+      render 'show'
+    end
+
   end
 
   def update
-    #PUT update to game
+      @game = Game.find(params[:id])
+    if authorized(@game.creator_id)
+      @game.update(game_params)
+      render 'show'
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -54,6 +68,10 @@ class GamesController < ApplicationController
 
     def logged_in?
       current_user != nil
+    end
+
+    def authorized(creator_id)
+      current_user.id == creator_id
     end
 
 end

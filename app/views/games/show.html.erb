@@ -47,4 +47,7 @@
 </div>
 <% end %>
 <%= link_to "Add Comment", new_game_comment_path(@game) %>
+<% if authorized(@game.creator_id) %>
+  <%= link_to "Edit Game", edit_game_path(@game) %>
+<% end %>
 </div>
