@@ -1,10 +1,14 @@
 class CommentsController < ApplicationController
   def new
-    #create comment form
+    @game = Game.find(params[:game_id])
+    @comment = Comment.new
   end
 
   def create
-    #post comment
+    @user = User.find(params[:comment][:user_id])
+    @game = Game.find(params[:game_id])
+    @game.comments.create(text: params[:comment][:text], commenter_id: params[:comment][:user_id])
+    redirect_to @game
   end
 
   def edit
@@ -18,4 +22,5 @@ class CommentsController < ApplicationController
   def destroy
     #delete comment
   end
+
 end

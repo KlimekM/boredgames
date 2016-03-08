@@ -38,6 +38,7 @@ class UsersController < ApplicationController
     #delete user
   end
 
+  private
     def person_params
       params.require(:user).permit(:first_name, :last_name, :username, :image_url, :password)
     end
