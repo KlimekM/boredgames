@@ -12,11 +12,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    #edit comment
+    @game = Game.find(params[:game_id])
+    @comment = Comment.find(params[:id])
   end
 
   def update
-    #PUT request
+    @game = Game.find(params[:game_id])
+    @comment = Comment.find(params[:id])
+    @comment.update(text: params[:text])
+    redirect_to @game
   end
 
   def destroy
