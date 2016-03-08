@@ -1,0 +1,36 @@
+<div>
+  <div>
+    <div>
+      <img src="<%= @game.image_url %>">
+      <p>INSERT VOTES HERE</p>
+    </div>
+    <div>
+      <p><%= @game.name %></p>
+      <p><%= @game.player_range %></p>
+      <p><%= @game.play_time %></p>
+      <ul>
+        <li><b>Categories:</b></li>
+        <% @game.categories.each do |category| %>
+        <li><%= category.name %></li>
+        <% end %>
+      </ul>
+      <ul>
+        <li><b>Mechanics:</b></li>
+        <% @game.tags.each do |tag| %>
+        <li><%= tag.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <p><%= @game.description %></p>
+  </div>
+  <div>
+    <ul>
+      <li><b>Comments:</b></li>
+      <% @game.comments.each do |comment| %>
+        <li><%= comment.text %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

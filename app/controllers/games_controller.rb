@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    #individual game page
+    @game = Game.find(params[:id])
   end
 
   def edit
