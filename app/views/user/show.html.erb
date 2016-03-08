@@ -19,11 +19,29 @@
 		<h2>Games</h2>
 		<% @user.games.each do |game| %>
 		<li>
-			<h3><img src="<%= game.image_url %>"><%= game.name %></h3>
-			<p><strong>Info:</strong>   <%= game.description %></p>
-			<p>Player Range:  <%= game.player_range %></p>
-			<p>Play Time:  <%= game.play_time %></p>
+			<h3><a href="#openModal-<%= game.name %>"><img src="<%= game.image_url %>"><%= game.name %></a></h3>
+			<p>Player Range: <%= game.player_range %></p>
+			<p>Play Time: <%= game.play_time %></p>
+			
 		</li>
-		<% end %>
+
+		<div id="openModal-<%= game.name %>" class="modalDialog">
+			<div>
+				<a href="#close" title="Close" class="close">X</a>
+				<h3><img src="<%= game.image_url %>"><%= game.name %></h3>
+				<p>Player Range: <%= game.player_range %></p>
+				<p>Play Time: <%= game.play_time %></p>
+				<p><strong>Info:</strong><%= game.description %></p>
+				<p>Categories: 
+					<% game.categories.each do |category| %>
+					<a href="#"><%= category.name %></a>
+					<% end %>
+				</p>
+				<p>Tags: <% game.tags.each do |tag| %>
+					<a href="#"><%= tag.name %></a>
+					<% end %></p>
+				</div>
+			</div>
+			<% end %>
+		</div>
 	</div>
-</div>
