@@ -557,7 +557,7 @@ end
 
 
 votes = 300.times.map do
-  Vote.create!(voter_id: users.sample.id, game_id: games.sample.id, value: [-1,1,0].sample)
+  Vote.create!(voter_id: users.sample.id, game_id: games.sample.id, value: [-1,1].sample)
 end
 
 tags_for_seeding =[
