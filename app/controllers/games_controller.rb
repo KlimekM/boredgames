@@ -54,7 +54,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    #delete game from record
+    @game = Game.find(params[:id])
+    if authorized(@game.creator_id)
+      @game.destroy
+    end
+    redirect_to root_path
   end
 
   private
