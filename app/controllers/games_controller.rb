@@ -43,6 +43,11 @@ class GamesController < ApplicationController
     #delete game from record
   end
 
+  def search
+    @found_games = Game.where('name LIKE ?', "%#{params[:query]}%").all
+    puts @found_games
+  end
+
   private
     def game_params
       params.require(:game).permit(:name, :release_year, :player_range,
