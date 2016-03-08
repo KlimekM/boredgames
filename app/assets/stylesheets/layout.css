@@ -42,4 +42,13 @@ ul {
 .game-picture {
   padding: 30px;
   margin-top: 20px;
+  text-align: center;
+}
+
+.game-picture img {
+
+}
+
+.norm-game-font {
+  font-size: 24px;
 }

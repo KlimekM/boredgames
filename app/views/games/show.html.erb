@@ -1,40 +1,40 @@
 <div>
   <div class="row">
-    <div class="col-md-1 col-md-offset-1 center-in-div game-picture">
+    <div class="col-md-2 col-md-offset-1 center-in-div game-picture">
       <img src="<%= @game.image_url %>">
-      <p>Current Votes: <%= @game.points %></p>
+      <p class="norm-game-font">Current Votes: <%= @game.points %></p>
     </div>
     <div class="col-md-6 col-md-offset-1 center-in-div">
       <h2><%= @game.name %></h2>
-      <p>Player range: <%= @game.player_range %></p>
-      <p>Play time: <%= @game.play_time %></p>
+      <p class="norm-game-font">Player range: <%= @game.player_range %></p>
+      <p class="norm-game-font">Play time: <%= @game.play_time %></p>
       <ul>
         <h3><b>Categories:</b></h3>
         <% @game.categories.each do |category| %>
-        <li><%= category.name %></li>
+        <li class="norm-game-font"><%= category.name %></li>
         <% end %>
       </ul>
       <ul>
         <h3><b>Mechanics:</b></h3>
         <% @game.tags.each do |tag| %>
-        <li><%= tag.name %></li>
+        <li class="norm-game-font"><%= tag.name %></li>
         <% end %>
       </ul>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 center-in-div">
+    <div class="col-md-6 col-md-offset-4 center-in-div">
       <h3><b>Game Description:</b></h3>
-      <p><%= @game.description %></p>
+      <p class="norm-game-font"><%= @game.description %></p>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 center-in-div">
+  <div class="col-md-6 col-md-offset-4 center-in-div">
     <ul>
       <h3><b>Comments:</b></h3>
       <% @game.comments.each do |comment| %>
-      <li><%= comment.text %></li>
+      <li class="norm-game-font"><%= comment.text %>    by: <%= comment.commenter.username %></li>
       <% end %>
     </ul>
   </div>
