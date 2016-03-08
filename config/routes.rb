@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'games/:game_id/collections' => 'collections#create'
   delete 'games/:game_id/collections/:id' => 'collections#destroy'
 
+  get 'logout' => 'sessions#logout'
 
 
 

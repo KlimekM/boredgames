@@ -1,7 +1,7 @@
 <% if @user.errors.any? %>
   <ul>
   <% for message_error in @user.errors.full_messages %>
-    <li>* <%= message_error %></li>
+    <li> <%= message_error %></li>
   <% end %>
   </ul>
 <% end %>
@@ -15,6 +15,9 @@
 
   <%= f.label :username %>:
   <%= f.text_field :username %><br/>
+
+  <%= f.label :image_url %>:
+  <%= f.text_field :image_url %><br/>
 
   <%= f.label :password %>:
   <%= f.password_field :password %><br/>
