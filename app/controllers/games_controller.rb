@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def index
-    #public list of games (browse page)
+    @popular_games = Game.popular_games.slice(0,24)
+    @newest_games = Game.order(created_at: :desc).limit(24)
   end
 
   def new
