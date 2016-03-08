@@ -35,7 +35,8 @@
     <ul>
       <h3><b>Comments:</b></h3>
       <% @game.comments.each do |comment| %>
-      <li class="norm-game-font"><%= comment.text %>    by: <%= comment.commenter.username %></li>
+      <li class="norm-game-font"><%= comment.text %>    by: <%= comment.commenter.username %>
+      </li>
       <% end %>
     </ul>
   </div>
