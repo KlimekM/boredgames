@@ -36,8 +36,8 @@ class GamesController < ApplicationController
     if authorized(@game.creator_id)
       render 'edit'
     else
-      # add flash "you can't do that"
-      render 'show'
+      # add flash "you can't do that" ?
+      redirect_to game_path(@game)
     end
 
   end
@@ -48,6 +48,7 @@ class GamesController < ApplicationController
       @game.update(game_params)
       render 'show'
     else
+
       render 'edit'
     end
   end
