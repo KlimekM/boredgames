@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #form to edit user information
+    @user = User.find(params[:id])
   end
 
   def update

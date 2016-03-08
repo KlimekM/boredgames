@@ -3,6 +3,9 @@
 		<p><img src="<%= @user.image_url %>"></p>
 		<p><%= @user.first_name %> <%= @user.last_name %></p>
 		<p><%= @user.username %></p>
+		<% if current_user %>
+			<%= link_to "Edit", edit_user_path(@user) %>
+		<% end %>
 	</div>
 
 	<div id="profile-friends">
