@@ -1,4 +1,10 @@
-
+<% if @user.errors.any? %>
+  <ul>
+  <% for message_error in @user.errors.full_messages %>
+    <li>* <%= message_error %></li>
+  <% end %>
+  </ul>
+<% end %>
 
 <%= form_for @user, url: users_path do |f| %>
   <%= f.label :first_name %>:

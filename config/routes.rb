@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   root 'games#index'
 
   resources :users, except: :index
-
-  post 'users' => "users/create"
-
   resources :games do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end

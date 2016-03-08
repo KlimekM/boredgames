@@ -7,13 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(person_params)
 
     if @user.save
-      flash[:notice] = "You signed up successfully"
-      flash[:color]= "valid"
+      render 'show'
     else
-      flash[:notice] = "Form is invalid"
-      flash[:color]= "invalid"
+
     end
-    render 'show'
+
   end
 
   def show
