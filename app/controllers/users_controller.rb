@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       render 'show'
     else
-      @user
       render 'new'
     end
 

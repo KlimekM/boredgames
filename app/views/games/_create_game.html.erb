@@ -1,0 +1,41 @@
+<% if @game.errors.any? %>
+  <ul>
+  <% for message_error in @game.errors.full_messages %>
+    <li> <%= message_error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @game, url: games_path do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br/>
+
+  <%= f.label :release_year %>:
+  <%= f.number_field :release_year %><br/>
+
+  <%= f.label :player_range %>:
+  <%= f.text_field :player_range %><br/>
+
+  <%= f.label :image_url %>:
+  <%= f.text_field :image_url %><br/>
+
+  <%= f.label :publisher %>:
+  <%= f.text_field :publisher %><br/>
+
+  <%= f.label :play_time %>:
+  <%= f.text_field :play_time %><br/>
+
+  <%= f.label :description %>:
+  <%= f.text_area :description %><br/>
+
+  <%= f.label :categories %>:
+<%= f.collection_select :category_ids, Category.all, :id, :name, {}, :multiple => true  %><br/>
+
+  <%= f.label :tags %>:
+  <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, :multiple => true %><br/>
+
+  <%= f.submit "Create Game" %>
+<% end %>
+
+<!-- add categories and tags -->
+
