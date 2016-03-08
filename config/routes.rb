@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :votes, only: [:create, :destroy]
   resources :friendships, only: [:create, :destroy]
 
+
+
   post 'games/:game_id/collections' => 'collections#create'
   delete 'games/:game_id/collections/:id' => 'collections#destroy'
 

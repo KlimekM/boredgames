@@ -12,7 +12,9 @@
     <h1>Bored Gamez</h1>
     <ul class="pagination navbar-right" id="no-top-margin">
       <li class="bigger-nav"> <%= link_to "Home", root_path %>
+
     <% if logged_in? %>
+      <li class="bigger-nav"> <%= link_to "Create a Game", new_game_path %></p>
       <li class="bigger-nav"><%= link_to current_user.username, current_user %></li>
       <li class="bigger-nav"><%= link_to "Logout", '/logout' %></li>
     <% else %>
