@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user 
       render 'show'
     else
-      redirect '/'
+      redirect_to '/'
     end
   end
 
