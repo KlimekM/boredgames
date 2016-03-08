@@ -1,4 +1,7 @@
-<%= form_tag("/votes", method: "post") do %>
-  <%= hidden_field_tag(:vote_value, -1) %>
-  <%= submit_tag("Downvote") %>
+<% if current_user %>
+<%= button_to "Add to Collection", "games/#{game.id}/collections", params: {user_id: current_user.id, game_id: game.id } %>
+<% puts current_user %>
+<% puts game.name %>
+<% puts '*************PARAMS********' %>
+
 <% end %>

@@ -7,7 +7,9 @@
 
 	<%= render "upvote", game: game %>
 	<%= render "downvote", game: game %>
-		<button>Add to Collection</button>
+	<%= render "add_to_collection", game: game %>
+
+		<!-- <button>Add to Collection</button> -->
 </div>
 
 <div id="openModal-<%= game.name %>" class="modalDialog">
