@@ -1,0 +1,18 @@
+<%= form_for @game, url: games_path do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br/>
+
+  <%= f.label :release_year %>:
+  <%= f.integer_field :release_year %><br/>
+
+  <%= f.label :username %>:
+  <%= f.text_field :username %><br/>
+
+  <%= f.label :image_url %>:
+  <%= f.text_field :image_url %><br/>
+
+  <%= f.label :password %>:
+  <%= f.password_field :password %><br/>
+
+  <%= f.submit "Sign up" %>
+<% end %>
