@@ -1,1 +1,27 @@
-<h1>empty profile page</h1>
+<div id="profile">
+	<div id="profile-head">
+		<p><img src="<%= @user.image_url %>"></p>
+		<p><%= @user.first_name %> <%= @user.last_name %></p>
+		<p><%= @user.username %></p>
+	</div>
+
+	<div id="profile-friends">
+		<h2>Friends</h2>
+		<ul>
+			<% @user.friends.each do |friend| %>
+			<li><%= friend.username %></li>
+			<% end %>
+		</ul>
+	</div>
+
+
+	<div id="profile-games">
+		<h2>Games</h2>
+		<% @user.games.each do |game| %>
+		<li>
+			<%= render partial: '/games/game', locals: { game: game } %>
+		</li>
+		
+		<% end %>
+	</div>
+</div>

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     #user profile page
     @user = User.find(params[:id])
     if @user 
-      render :'/user/show'
+      render 'show'
     else
       redirect '/'
     end
