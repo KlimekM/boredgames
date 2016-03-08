@@ -1,6 +1,10 @@
 class VotesController < ApplicationController
+
   def create
-    Vote.create!(voter_id: params[:voter_id], game_id: params[:game_id], value: params[:value])
+    game = Game.find(params[:game_id])
+    user = User.find(params[:user_id])
+    value = params[:value]
+    Vote.create!(voter_id: user.id, game_id: game.id, value: value)
     redirect_to '/'
   end
 
@@ -8,8 +12,8 @@ class VotesController < ApplicationController
     #backtrack (remove vote)
   end
 
-  # private
-  # def vote_params
-  #     params.require(:vote).permit(:voter_id, :game_id, :value)
-  #   end
+  private
+  def vote_params
+      params.require(:vote).permit(:voter_id, :game_id, :value)
+    end
 end
