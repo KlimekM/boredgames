@@ -4,18 +4,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user = User.find_by(username: user_params[:username]).try(:authenticate, user_params[:password])
-      session[:current_user_id] = user.id
+    if @user = User.find_by(username: user_params[:username]).try(:authenticate, user_params[:password])
+      session[:user_id] = @user.id
       render 'users/show'
     else
+      @user = User.new
       @error = "Username or password is incorrect"
       render 'sessions/new'
     end
 
   end
 
-  def destroy
-    session.destroy
+  def logout
+    reset_session
+    redirect_to '/'
   end
 
   private

@@ -7,9 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(person_params)
 
     if @user.save
+      session[:user_id] = @user.id
       render 'show'
     else
-
+      @user
+      render 'new'
     end
 
   end
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
   def show
     #user profile page
     @user = User.find(params[:id])
-    if @user 
+    if @user
       render 'show'
     else
       redirect_to '/'
@@ -37,6 +39,6 @@ class UsersController < ApplicationController
   end
 
     def person_params
-      params.require(:user).permit(:first_name, :last_name, :username, :password)
+      params.require(:user).permit(:first_name, :last_name, :username, :image_url, :password)
     end
 end
