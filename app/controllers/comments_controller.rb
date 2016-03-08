@@ -19,8 +19,11 @@ class CommentsController < ApplicationController
   def update
     @game = Game.find(params[:game_id])
     @comment = Comment.find(params[:id])
-    @comment.update(text: params[:text])
-    redirect_to @game
+    if @comment.update(text: params[:comment][:text])
+      redirect_to @game
+    else 
+      render 'edit'
+    end
   end
 
   def destroy
