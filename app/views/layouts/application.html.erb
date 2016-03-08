@@ -8,20 +8,21 @@
 </head>
 <body>
 <header>
-  <nav>
+  <nav class="navbar-fixed-top">
     <h1>Bored Gamez</h1>
-    <p>Placeholder SearchBar</p>
-    <ul>
-      <li> <%= link_to "Home", root_path %>
-      <li> <%= link_to "Create a Game", new_game_path %>
+    <ul class="pagination navbar-right" id="no-top-margin">
+      <li class="bigger-nav"> <%= link_to "Home", root_path %>
+
     <% if logged_in? %>
-      <li><%= link_to current_user.username, current_user %></li>
-      <li><%= link_to "Logout", '/logout' %></li>
+      <li class="bigger-nav"> <%= link_to "Create a Game", new_game_path %></p>
+      <li class="bigger-nav"><%= link_to current_user.username, current_user %></li>
+      <li class="bigger-nav"><%= link_to "Logout", '/logout' %></li>
     <% else %>
-      <li><%= link_to "Login", new_session_path %></li>
-      <li><%= link_to "Register", new_user_path %></li>
+      <li class="bigger-nav"><%= link_to "Login", new_session_path %></li>
+      <li class="bigger-nav"><%= link_to "Register", new_user_path %></li>
     <% end %>
     </ul>
+    <p class="navbar-right">Placeholder SearchBar</p>
   </nav>
 </header>
 
