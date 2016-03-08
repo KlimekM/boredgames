@@ -29,10 +29,10 @@
   <%= f.text_area :description %><br/>
 
   <%= f.label :categories %>:
-  <%= f.collection_select :categories %><br/>
+<%= f.collection_select :category_ids, Category.all, :id, :name, {}, :multiple => true  %><br/>
 
   <%= f.label :tags %>:
-  <%= f.collection_select :tags %><br/>
+  <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, :multiple => true %><br/>
 
   <%= f.submit "Create Game" %>
 <% end %>

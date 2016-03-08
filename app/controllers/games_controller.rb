@@ -20,9 +20,9 @@ class GamesController < ApplicationController
     @game.creator_id = current_user.id
 
     if @game.save
-      render 'game/show'
+      render 'show'
     else
-      render 'game/new'
+      render 'new'
     end
   end
 
@@ -44,7 +44,8 @@ class GamesController < ApplicationController
 
   private
     def game_params
-      params.require(:game).permit(:name, :release_year, :player_range, :image_url, :publisher, :play_time, :description)
+      params.require(:game).permit(:name, :release_year, :player_range,
+        :image_url, :publisher, :play_time, :description, :tag_ids => [], :category_ids => [])
     end
 
     def current_user
