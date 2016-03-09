@@ -1,0 +1,27 @@
+#profile-left {
+	width: 35%;
+	float: left;
+	margin-left: 1%;
+}
+
+#profile-games {
+	width: 60%;
+	float: left;
+}
+
+#profile-games .game-card {
+	text-align: center;
+	width: 45%;
+	height: 30%;
+}
+
+#profile-head p{
+	display: inline-block;
+}
+
+#profile-games h2 {
+	text-align: center;
+  background-color: #daa520;
+  width: 90%;
+  padding: 2px;
+}
