@@ -1,6 +1,6 @@
-<% if @error %>
+<div class='errors'><% if @error %>
   <%= @error %>
-<% end %>
+<% end %></div>
 
 <%= form_for @user, url: sessions_path, :html => {:class => "add-game-form"} do |f| %>
   <%= f.label :username %>:
