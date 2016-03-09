@@ -33,7 +33,11 @@ class GamesController < ApplicationController
     p "*" * 100
     p "*" * 100
     p "*" * 100
+    p @game
     p @game.categories
+    p "*" * 100
+    p "*" * 100
+    p "*" * 100
 
   end
 

@@ -3,25 +3,28 @@
     <div class="col-md-2 col-md-offset-1 center-in-div game-picture">
       <img src="<%= @game.image_url %>">
       <p class="norm-game-font">Current Votes: <%= @game.points %></p>
+      <%= link_to "Add Comment", new_game_comment_path(@game) %>
     </div>
     <div class="col-md-6 col-md-offset-1 center-in-div">
-      <h2><%= @game.name %></h2>
+      <h2 class="game-show-name"><%= @game.name %></h2>
       <p class="norm-game-font">Player range: <%= @game.player_range %></p>
       <p class="norm-game-font">Play time: <%= @game.play_time %></p>
-      <ul>
-        <% if @game.categories %>
+      <% if @game.categories.length > 0 %>
+        <ul>
           <h3><b>Categories:</b></h3>
           <% @game.categories.each do |category| %>
           <li class="norm-game-font"><%= category.name %></li>
           <% end %>
-        <% end %>
-      </ul>
-      <ul>
-        <h3><b>Mechanics:</b></h3>
-        <% @game.tags.each do |tag| %>
-        <li class="norm-game-font"><%= tag.name %></li>
-        <% end %>
-      </ul>
+        </ul>
+      <% end %>
+      <% if @game.categories.length > 0 %>
+        <ul>
+          <h3><b>Mechanics:</b></h3>
+          <% @game.tags.each do |tag| %>
+          <li class="norm-game-font"><%= tag.name %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
   <div class="row">
@@ -49,7 +52,6 @@
   </div>
 </div>
 <% end %>
-<%= link_to "Add Comment", new_game_comment_path(@game) %>
 <% if authorized(@game.creator_id) %>
   <%= link_to "Edit Game", edit_game_path(@game) %>
 <% end %>
