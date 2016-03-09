@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def show
     #user profile page
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     if @user
       render 'show'
     else
@@ -33,11 +33,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     if @user.update(person_params)
       redirect_to @user
     else
