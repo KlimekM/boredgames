@@ -1,0 +1,22 @@
+<h2 id="found-users">Found Users</h2>
+<% if @found_users.length < 1 %>
+<h2>No users found with that criteria!!! Try again!</h2>
+<% else %>
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Username</th>
+    <th>User Image</th>
+  </tr>
+  <% @found_users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= link_to user.username, user %></td>
+    <td><img src="<%= user.image_url %>"></td>
+  </tr>
+<% end %>
+</table>
+
+<% end %>

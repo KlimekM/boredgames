@@ -3,6 +3,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def search
+    @users_by_username = User.where('username LIKE ?', "%#{params[:query]}%").all
+    @users_by_firstname = User.where('first_name LIKE ?', "%#{params[:query]}%").all
+    @users_by_lastname = User.where('last_name LIKE ?', "%#{params[:query]}%").all
+    @found_users = @users_by_username.concat(@users_by_firstname.concat(@users_by_lastname)).uniq
+  end
+
   def create
     @user = User.new(person_params)
 

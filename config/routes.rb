@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'games#index'
 
   get 'games/search' => 'games#search'
+  get 'users/search' => 'users#search'
 
   resources :users, except: :index
   resources :games do
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
 
   get 'logout' => 'sessions#logout'
 
-  get 'users/search' => 'users#search'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
