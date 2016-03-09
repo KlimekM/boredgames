@@ -1,7 +1,7 @@
 <div>
   <h2>Highest-Rated</h2>
 
-  <table>
+  <table class="game-display-table">
     <% until @popular_games.empty? %>
       <tr class="row">
         <% 3.times do  %>
@@ -13,7 +13,7 @@
 
   <h2>Recently Added</h2>
 
-  <table>
+  <table class="game-display-table">
     <% until @newest_games.empty? %>
       <tr class="row">
         <% 3.times do  %>
