@@ -39,7 +39,7 @@ describe CommentsController, type: :controller do
 
     	it "redirect to the appropriate game" do
     		create_comment
-    		redirect_to game
+    		expect(response).to redirect_to game
     	end
 		end
 
@@ -68,7 +68,7 @@ describe CommentsController, type: :controller do
 
 			it "redirects to the appropriate game if the attributes update" do
 				update_comment
-				redirect_to game
+				expect(response).to redirect_to game
 			end
 		end
 
@@ -92,7 +92,7 @@ describe CommentsController, type: :controller do
 
 		it "redirects to the appropriate game" do
 			delete :destroy, { game_id: game.id, id: comment.id }
-			redirect_to game
+			expect(response).to redirect_to game
 		end
 	end
 end

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     else
       @user = User.new
       @error = "Username or password is incorrect"
-      render 'sessions/new'
+      render 'new'
     end
 
   end

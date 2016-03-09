@@ -197,25 +197,25 @@
         null,
         null,
         1,
-        2,
-        2,
-        2,
+        6,
+        3,
+        3,
         null,
-        0,
-        0,
-        0,
-        null,
-        null,
+        3,
+        3,
+        3,
         null,
         null,
-        1,
-        0,
-        0,
         null,
         null,
         1,
+        2,
+        2,
+        null,
+        null,
         1,
-        4,
+        1,
+        12,
         null,
         null
       ],
@@ -371,7 +371,8 @@
         1,
         null
       ],
-      "/Users/KlimekM/Desktop/phase-3/boredgames/app/models/friendship.rb": [
+      "/Users/KlimekM/Desktop/phase-3/boredgames/app/models/collection.rb": [
+        1,
         1,
         1,
         null
@@ -382,13 +383,12 @@
         1,
         null
       ],
-      "/Users/KlimekM/Desktop/phase-3/boredgames/app/models/collection.rb": [
-        1,
+      "/Users/KlimekM/Desktop/phase-3/boredgames/app/models/friendship.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1457549928
+    "timestamp": 1457551512
   }
 }
