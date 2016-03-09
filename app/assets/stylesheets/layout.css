@@ -63,7 +63,7 @@ ul {
   position: absolute;
   height: 60px;
   top: 7px;
-  right: 500px;
+  right: 630px;
   width: 300px;
   border-radius: 24px;
   padding: 4px;
@@ -76,7 +76,7 @@ ul {
 .fa-gamepad, .fa-child {
   position: absolute;
   top: 14px;
-  right: 450px;
+  right: 600px;
 }
 
 .search-hide {
