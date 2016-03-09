@@ -1,5 +1,5 @@
 <% if current_user && current_user.games.include?(game) %>
-  <%= button_to "Remove from Collection", "/games/#{game.id}/collections/delete_record", method: "delete", params: {user_id: current_user.id, game_id: game.id } %>
+  <%= button_to "Remove from Collection", "/games/#{game.id}/collections/delete_record", method: "delete", params: {user_id: current_user.id, game_id: game.id }, class: "remove_from_collection" %>
 <% elsif current_user %>
-  <%= button_to "Add to Collection", "games/#{game.id}/collections", params: {user_id: current_user.id, game_id: game.id } %>
+  <%= button_to "Add to Collection", "games/#{game.id}/collections", params: {user_id: current_user.id, game_id: game.id }, class: "add_to_collection" %>
 <% end %>
