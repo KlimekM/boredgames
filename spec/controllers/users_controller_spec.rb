@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe UsersController do
 
-
 	describe 'user#create'do 
 		let(:user) {User.new(first_name: 'ray', last_name: 'curran', username: 'rpcurr', password: 'password')}
 
