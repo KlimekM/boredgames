@@ -6,7 +6,7 @@
   </ul>
 <% end %>
 
-<%= form_for @game do |f| %>
+<%= form_for @game, :html => {:class => "add-game-form"} do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br/>
 
@@ -36,6 +36,3 @@
 
   <%= f.submit %>
 <% end %>
-
-<!-- add categories and tags -->
-

@@ -2,7 +2,7 @@
   <%= @error %>
 <% end %>
 
-<%= form_for @user, url: sessions_path do |f| %>
+<%= form_for @user, url: sessions_path, :html => {:class => "add-game-form"} do |f| %>
   <%= f.label :username %>:
   <%= f.text_field :username %><br/>
 
