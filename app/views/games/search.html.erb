@@ -3,7 +3,9 @@
     <% until @found_games.empty? %>
       <tr class="row">
         <% 3.times do  %>
-          <%= render "game", game: @found_games.shift %>
+          <% if @found_games.first %>
+            <%= render "game", game: @found_games.shift %>
+            <% end %>
         <% end %>
       </tr>
     <% end %>
