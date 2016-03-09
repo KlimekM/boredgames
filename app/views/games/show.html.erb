@@ -9,9 +9,11 @@
       <p class="norm-game-font">Player range: <%= @game.player_range %></p>
       <p class="norm-game-font">Play time: <%= @game.play_time %></p>
       <ul>
-        <h3><b>Categories:</b></h3>
-        <% @game.categories.each do |category| %>
-        <li class="norm-game-font"><%= category.name %></li>
+        <% if @game.categories %>
+          <h3><b>Categories:</b></h3>
+          <% @game.categories.each do |category| %>
+          <li class="norm-game-font"><%= category.name %></li>
+          <% end %>
         <% end %>
       </ul>
       <ul>
