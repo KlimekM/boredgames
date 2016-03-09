@@ -16,9 +16,9 @@ describe CommentsController, type: :controller do
 	describe "POST #create" do #not working
 		context "when valid params are passed" do
 			before :each do
-      	post :create, { game_id: game.id, user_id: user.id, comment: { text: "Awesome game!", game_id: game.id, commenter_id: user.id }}
+      	post :create, { user_id: user.id, game_id: game.id, comment: { text: "Awesome game!", game_id: game.id, commenter_id: user.id }}
     	end
-
+   
     	it "creates a new comment" do
     		expect(assigns(:comment)).to be_a(Comment)
     	end
@@ -35,7 +35,7 @@ describe CommentsController, type: :controller do
 
 		context "when invalid params are passed" do
 			it "re-renders the 'edit' template" do
-        post(:create, { game_id: game.id, comment: { text: "Great game!", game_id: game.id }})
+        post(:create, { user_id: user.id, game_id: game.id, comment: { text: "Great game!", game_id: game.id, commenter_id: user.id }})
         expect(response).to render_template(:edit)
       end
 		end
