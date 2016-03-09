@@ -9,4 +9,3 @@
   <%= button_to "Upvote", votes_path, params: {user_id: current_user.id, game_id: game.id, value: 1} %>
   <%= button_to "Downvote", votes_path, params: {user_id: current_user.id, game_id: game.id, value: -1} %>
 <% end %>
-
