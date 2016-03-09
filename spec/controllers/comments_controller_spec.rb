@@ -44,9 +44,9 @@ describe CommentsController, type: :controller do
 		end
 
 		context "when invalid params are passed" do
-			it "re-renders the 'edit' template" do
+			it "re-renders the 'new' template" do
         invalid_comment
-        redirect_to new_game_comment_path
+        expect(response).to render_template(:new)
       end
     end
 	end
