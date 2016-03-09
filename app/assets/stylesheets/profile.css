@@ -1,0 +1,53 @@
+#profile-left {
+	width: 35%;
+	float: left;
+	margin-left: 1%;
+}
+
+#profile-games {
+	width: 60%;
+	float: left;
+}
+
+#profile-games .game-card {
+	text-align: center;
+	width: 45%;
+	height: 30%;
+}
+
+#profile-head p {
+	display: inline-block;
+	width: 90%;
+	text-align: center;
+	font-size: 30px;
+}
+
+#profile-head a {
+	display: inline-block;
+	width: 90%;
+	text-align: center;
+	font-size: 30px;
+}
+
+#profile-left span a {
+	color: red;
+	padding-left: 15px;
+}
+
+#profile-games h2 {
+	text-align: center;
+  background-color: #daa520;
+  width: 90%;
+  padding: 2px;
+}
+
+#profile-friends h2 {
+	text-align: center;
+  background-color: #daa520;
+  width: 90%;
+  padding: 2px;
+}
+
+#profile-friends ul {
+	font-size: 15px;
+}

@@ -1,8 +1,12 @@
 <div id="profile">
+<div id="profile-left">
 	<div id="profile-head">
-		<p><img src="<%= @user.image_url %>"></p>
-		<p><%= @user.first_name %> <%= @user.last_name %></p>
-		<p><%= @user.username %></p>
+		<img src="<%= @user.image_url %>">
+		<br>
+		<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+		<br>
+		<p>Username: <%= @user.username %></p>
+		<br>
 		<% if current_user && current_user.id == @user.id %>
 			<%= link_to "Edit", edit_user_path(@user) %>
 		<% end %>
@@ -11,7 +15,7 @@
 	<div id="profile-friends">
 		<%= render partial: '/users/friends_list', locals: {user: @user} %>
 	</div>
-
+</div>
 
 	<div id="profile-games">
 		<h2>Games</h2>
@@ -24,7 +28,7 @@
 		<table>
     <% until user_collection.empty? %>
       <tr class="row">
-        <% 3.times do  %>
+        <% 2.times do  %>
         	<% if user_collection.first %>
         		<%= render partial: '/games/game', locals: { game: user_collection.shift } %>
         	<% end %>
