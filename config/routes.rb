@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
   post 'games/:game_id/collections' => 'collections#create'
-  delete 'games/:game_id/collections/:collections_id' => 'collections#destroy'
+  delete 'games/:game_id/collections/delete_record' => 'collections#destroy'
 
   get 'logout' => 'sessions#logout'
 
