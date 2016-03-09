@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Boredgames</title>
+  <title>Boredgamez</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -14,20 +14,7 @@
 
   <header class="col-xs-12">
     <nav class="navbar-fixed-top">
-
-      <h1>Bored Gamez</h1>
-
-      <ul class="pagination navbar-right" id="no-top-margin">
-        <li class="bigger-nav"> <%= link_to "Home", root_path %>
-      <% if logged_in? %>
-        <li class="bigger-nav"> <%= link_to "Create a Game", new_game_path %></p>
-        <li class="bigger-nav"><%= link_to current_user.username, current_user %></li>
-        <li class="bigger-nav"><%= link_to "Logout", '/logout' %></li>
-      <% else %>
-        <li class="bigger-nav"><%= link_to "Login", new_session_path %></li>
-        <li class="bigger-nav"><%= link_to "Register", new_user_path %></li>
-      <% end %>
-      </ul>
+      <h1>Bored? Games!</h1>
 
       <form action="/games/search" id="search-form" class="navbar-right">
         <input id="search" type="test" name="query" placeholder="search games">
@@ -40,11 +27,23 @@
       </form>
 
       <i class="fa fa-gamepad fa-2x" id="i-hide"></i>
+
+      <ul class="pagination navbar-right" id="no-top-margin">
+        <li class=""> <%= link_to "Home", root_path %>
+      <% if logged_in? %>
+        <li class=""> <%= link_to "Create a Game", new_game_path %></p>
+        <li class=""><%= link_to current_user.username, current_user %></li>
+        <li class=""><%= link_to "Logout", '/logout' %></li>
+      <% else %>
+        <li class=""><%= link_to "Login", new_session_path %></li>
+        <li class=""><%= link_to "Register", new_user_path %></li>
+      <% end %>
+      </ul>
     </nav>
 </header>
-
+<div id='wrapper'>
 <%= yield %>
-
+</div>
 </body>
 </div>
 </html>
