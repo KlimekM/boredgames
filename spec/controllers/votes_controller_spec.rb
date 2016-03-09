@@ -26,9 +26,22 @@ describe VotesController do
       expect(Vote.last.value).to eq(1)
     end
 
-    it "upvotes with value of 1" do
+    it "increases game's total points with upvote" do
+      create_vote(1)
+      expect(game.points).to eq(1)
+    end
+
+    it "downvotes with value of -1" do
       create_vote(-1)
       expect(Vote.last.value).to eq(-1)
+    end
+
+    it "decreases game's total points with downvote" do
+      create_vote(1)
+      create_vote(1)
+      create_vote(1)
+      create_vote(-1)
+      expect(game.points).to eq(2)
     end
 
     it "redirects to the root page" do
