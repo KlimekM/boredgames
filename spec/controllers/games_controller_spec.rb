@@ -101,7 +101,6 @@ describe GamesController do
     it 'finds a list of games based on a query' do
       create_game
       get :search, query: 'est'
-      puts assigns(:found_games)
       expect(assigns(:found_games)).to include(assigns(:game))
     end
   end

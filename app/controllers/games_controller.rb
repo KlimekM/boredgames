@@ -57,7 +57,6 @@ class GamesController < ApplicationController
 
   def search
     @found_games = Game.where('name LIKE ?', "%#{params[:query]}%").all
-    puts @found_games
   end
 
   private
