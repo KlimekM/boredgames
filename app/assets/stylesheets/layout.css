@@ -39,6 +39,12 @@ ul {
   padding-left: 0;
 }
 
+.game-card {
+  display: inline-block;
+  width: 30%;
+  border: 1px white solid;
+}
+
 .game-picture {
   padding: 30px;
   margin-top: 20px;

@@ -35,11 +35,10 @@
 
 	<div id="profile-games">
 		<h2>Games</h2>
+		<ul>
 		<% @user.games.each do |game| %>
-		<li>
 			<%= render partial: '/games/game', locals: { game: game } %>
-		</li>
-
 		<% end %>
+		</ul>
 	</div>
 </div>
