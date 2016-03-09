@@ -1,0 +1,25 @@
+.table-search {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.table-search td {
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.table-search th {
+  font-size: 30px;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#found-users {
+  font-size: 50px;
+  text-align: center;
+  text-decoration: underline;
+}
