@@ -39,6 +39,12 @@ ul {
   padding-left: 0;
 }
 
+.game-card {
+  display: inline-block;
+  width: 30%;
+  border: 1px white solid;
+}
+
 .game-picture {
   padding: 30px;
   margin-top: 20px;
@@ -52,3 +58,62 @@ ul {
 .norm-game-font {
   font-size: 24px;
 }
+
+#search {
+  position: absolute;
+  height: 60px;
+  top: 7px;
+  right: 500px;
+  width: 300px;
+  border-radius: 24px;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 36px;
+  font-size: 24px;
+  outline: none;
+}
+
+.fa-gamepad, .fa-child {
+  position: absolute;
+  top: 14px;
+  right: 450px;
+}
+
+.search-hide {
+  display: none;
+}
+
+#i-hide {
+  display: none;
+}
+
+table {
+  margin: 0 auto;
+  text-align: center;
+}
+
+table td {
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+table th {
+  font-size: 30px;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#found-users {
+  font-size: 50px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+option {
+  color: black;
+}
+

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'games#index'
 
+  get 'games/search' => 'games#search'
+  get 'users/search' => 'users#search'
+
   resources :users, except: :index
   resources :games do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]

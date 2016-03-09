@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   def index
+    @vote = Vote.new
     @popular_games = Game.popular_games.slice(0,24)
     @newest_games = Game.order(created_at: :desc).limit(24)
   end
@@ -28,18 +29,42 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+
   end
 
   def edit
-    #edit game form
+    @game = Game.find(params[:id])
+    if authorized(@game.creator_id)
+      render 'edit'
+    else
+      # add flash "you can't do that" ?
+      redirect_to game_path(@game)
+    end
+
   end
 
   def update
-    #PUT update to game
+      @game = Game.find(params[:id])
+    if authorized(@game.creator_id)
+      @game.update(game_params)
+      render 'show'
+    else
+
+      render 'edit'
+    end
   end
 
   def destroy
-    #delete game from record
+    @game = Game.find(params[:id])
+    if authorized(@game.creator_id)
+      @game.destroy
+    end
+    redirect_to root_path
+  end
+
+  def search
+    @found_games = Game.where('name LIKE ?', "%#{params[:query]}%").all
+    puts @found_games
   end
 
   private
@@ -54,6 +79,10 @@ class GamesController < ApplicationController
 
     def logged_in?
       current_user != nil
+    end
+
+    def authorized(creator_id)
+      current_user.id == creator_id
     end
 
 end

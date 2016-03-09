@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>Boredgames</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -22,7 +24,14 @@
       <li class="bigger-nav"><%= link_to "Register", new_user_path %></li>
     <% end %>
     </ul>
-    <p class="navbar-right">Placeholder SearchBar</p>
+    <form action="/games/search" id="search-form" class="navbar-right">
+      <input id="search" type="test" name="query" placeholder="search games">
+    </form>
+    <i class="fa fa-child fa-2x"></i>
+    <form action="/users/search" id="search-form" class="navbar-right search-hide">
+      <input id="search" type="test" name="query" placeholder="search users">
+    </form>
+    <i class="fa fa-gamepad fa-2x" id="i-hide"></i>
   </nav>
 </header>
 

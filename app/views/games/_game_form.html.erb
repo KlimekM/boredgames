@@ -6,7 +6,7 @@
   </ul>
 <% end %>
 
-<%= form_for @game, url: games_path do |f| %>
+<%= form_for @game do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br/>
 
@@ -29,12 +29,12 @@
   <%= f.text_area :description %><br/>
 
   <%= f.label :categories %>:
-<%= f.collection_select :category_ids, Category.all, :id, :name, {}, :multiple => true  %><br/>
+  <%= f.collection_select :category_ids, Category.all, :id, :name, {}, :multiple => true  %><br/>
 
   <%= f.label :tags %>:
   <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, :multiple => true %><br/>
 
-  <%= f.submit "Create Game" %>
+  <%= f.submit %>
 <% end %>
 
 <!-- add categories and tags -->
