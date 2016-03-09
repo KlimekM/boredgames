@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :comments, foreign_key: :commenter_id
-  has_many :votes
+  has_many :votes, foreign_key: :voter_id
   has_many :collections
   has_many :games, through: :collections
   has_many :created_games, class_name: "Game", foreign_key: :creator_id
