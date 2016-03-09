@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
     @vote = Vote.new
     @popular_games = Game.popular_games.slice(0,24)
-    @newest_games = Game.order(created_at: :desc).limit(24)
+    @newest_games = Game.newest_games.slice(0,24)
   end
 
   def new

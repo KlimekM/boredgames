@@ -1,19 +1,25 @@
 <div>
-  <section>
-    <h2>Highest-Rated</h2>
-    <ul>
-        <% @popular_games.each do |game| %>
-          <%= render "game", game: game %>
-        <% end %>
-    </ul>
-  </section>
+  <h2>Highest-Rated</h2>
 
-  <section>
-    <h2>Recently Added</h2>
-    <ul>
-        <% @newest_games.each do |game| %>
-          <%= render "game", game: game %>
+  <table>
+    <% until @popular_games.empty? %>
+      <tr class="row">
+        <% 3.times do  %>
+          <%= render "game", game: @popular_games.shift %>
         <% end %>
-    </ul>
-  </section>
+      </tr>
+    <% end %>
+  </table>
+
+  <h2>Recently Added</h2>
+
+  <table>
+    <% until @newest_games.empty? %>
+      <tr class="row">
+        <% 3.times do  %>
+          <%= render "game", game: @newest_games.shift %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
 </div>
