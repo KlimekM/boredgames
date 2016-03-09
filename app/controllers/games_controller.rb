@@ -54,14 +54,6 @@ class GamesController < ApplicationController
     end
   end
 
-  def destroy
-    @game = Game.find(params[:id])
-    if authorized(@game.creator_id)
-      @game.destroy
-    end
-    redirect_to root_path
-  end
-
   def search
     @found_games = Game.where('name LIKE ?', "%#{params[:query]}%").all
     puts @found_games
