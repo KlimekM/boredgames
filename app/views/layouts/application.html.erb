@@ -3,18 +3,21 @@
 <head>
   <title>Boredgames</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body><div class="container-fluid">
-<header>
+<body><div id="main-container" class="container">
+
+<div class='row'><header>
   <nav class="navbar-fixed-top">
+
     <h1>Bored Gamez</h1>
+
     <ul class="pagination navbar-right" id="no-top-margin">
       <li class="bigger-nav"> <%= link_to "Home", root_path %>
-
     <% if logged_in? %>
       <li class="bigger-nav"> <%= link_to "Create a Game", new_game_path %></p>
       <li class="bigger-nav"><%= link_to current_user.username, current_user %></li>
@@ -24,16 +27,21 @@
       <li class="bigger-nav"><%= link_to "Register", new_user_path %></li>
     <% end %>
     </ul>
+
     <form action="/games/search" id="search-form" class="navbar-right">
       <input id="search" type="test" name="query" placeholder="search games">
     </form>
+
     <i class="fa fa-child fa-2x"></i>
+
     <form action="/users/search" id="search-form" class="navbar-right search-hide">
       <input id="search" type="test" name="query" placeholder="search users">
     </form>
+
     <i class="fa fa-gamepad fa-2x" id="i-hide"></i>
   </nav>
-</header>
+
+</header></div>
 
 <%= yield %>
 

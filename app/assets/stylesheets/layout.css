@@ -24,7 +24,7 @@ nav h1 {
   margin-top: 0;
 }
 
-.center-in-div {
+/*.center-in-div {
   text-align: center;
   border: 1px solid #00A379;
   border-radius: 10px;
@@ -32,14 +32,14 @@ nav h1 {
   margin-top: 20px;
   padding-bottom: 15px;
   padding-top: 5px;
-}
+}*/
 
-ul {
+/*ul {
   list-style: none;
   padding-left: 0;
-}
+}*/
 
-.game-card {
+/*.game-card {
   display: inline-block;
   width: 30%;
   border: 1px white solid;
@@ -57,7 +57,7 @@ ul {
 
 .norm-game-font {
   font-size: 24px;
-}
+}*/
 
 #search {
   position: absolute;
@@ -87,7 +87,7 @@ ul {
   display: none;
 }
 
-table {
+/*table {
   margin: 0 auto;
   text-align: center;
 }
@@ -115,5 +115,5 @@ table th {
 
 option {
   color: black;
-}
+}*/
 
