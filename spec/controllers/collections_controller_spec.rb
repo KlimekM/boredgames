@@ -22,9 +22,13 @@ describe CollectionsController do
     end
   end
 
-  # describe "destroy" do
-  #   it "deletes a game from a user's collection" do
-  #   end
-  # end
+  describe "destroy" do
+    it "deletes a game from a user's collection" do
+      add_game_to_collection
+      session[:return_to] = '/'
+      delete :destroy, user_id: user.id, game_id: game.id
+      expect(user.games).to_not include(game)
+    end
+  end
 
 end

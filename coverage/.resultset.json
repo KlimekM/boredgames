@@ -23,19 +23,19 @@
       "/Users/apprentice/boredgames/app/controllers/collections_controller.rb": [
         1,
         1,
-        2,
-        2,
-        2,
-        2,
+        3,
+        3,
+        3,
+        3,
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -342,11 +342,6 @@
         1,
         null
       ],
-      "/Users/apprentice/boredgames/app/models/friendship.rb": [
-        1,
-        1,
-        null
-      ],
       "/Users/apprentice/boredgames/app/models/category.rb": [
         1,
         1,
@@ -355,6 +350,11 @@
       ],
       "/Users/apprentice/boredgames/app/models/collection.rb": [
         1,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/boredgames/app/models/friendship.rb": [
         1,
         1,
         null
@@ -389,6 +389,6 @@
         0
       ]
     },
-    "timestamp": 1457544066
+    "timestamp": 1457544548
   }
 }
