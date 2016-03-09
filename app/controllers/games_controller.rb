@@ -30,15 +30,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    p "*" * 100
-    p "*" * 100
-    p "*" * 100
-    p @game
-    p @game.categories
-    p "*" * 100
-    p "*" * 100
-    p "*" * 100
-
   end
 
   def edit

@@ -1,58 +1,60 @@
-<div>
-  <div class="row">
-    <div class="col-md-2 col-md-offset-1 center-in-div game-picture">
-      <img src="<%= @game.image_url %>">
-      <p class="norm-game-font">Current Votes: <%= @game.points %></p>
-      <%= link_to "Add Comment", new_game_comment_path(@game) %>
-    </div>
-    <div class="col-md-6 col-md-offset-1 center-in-div">
-      <h2 class="game-show-name"><%= @game.name %></h2>
-      <p class="norm-game-font">Player range: <%= @game.player_range %></p>
-      <p class="norm-game-font">Play time: <%= @game.play_time %></p>
-      <% if @game.categories.length > 0 %>
-        <ul>
-          <h3><b>Categories:</b></h3>
-          <% @game.categories.each do |category| %>
-          <li class="norm-game-font"><%= category.name %></li>
-          <% end %>
-        </ul>
-      <% end %>
-      <% if @game.categories.length > 0 %>
-        <ul>
-          <h3><b>Mechanics:</b></h3>
-          <% @game.tags.each do |tag| %>
-          <li class="norm-game-font"><%= tag.name %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-4 center-in-div">
-      <h3><b>Game Description:</b></h3>
-      <p class="norm-game-font"><%= @game.description %></p>
-    </div>
-  </div>
-</div>
-<% if @game.comments.length > 0 %>
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-4 center-in-div">
+
+  <div class="col-md-2 game-pic-div game-show-div">
+    <img src="<%= @game.image_url %>">
+    <p class="ratings-p">Rating: <%= @game.points %></p>
+    <% if authorized(@game.creator_id) %>
+    <%= link_to "Edit Game", edit_game_path(@game) %>
+    <% end %>
+  </div>
+
+  <div class="col-md-6 game-info-div">
+    <h2 class="game-show-name"><%= @game.name %></h2>
+    <p class="game-show-meta-data">
+      <span class="meta-data">Player range: <%= @game.player_range %></span>
+      <span class="meta-data">Play time: <%= @game.play_time %></span>
+    </p>
+    <h3><b>Game Description:</b></h3>
+    <p class="game-description"><%= @game.description %></p>
+
+    <% if @game.categories.length > 0 %>
+    <ul class="game-list">
+      <h3><b>Categories:</b></h3>
+      <% @game.categories.each do |category| %>
+      <li class=""><%= category.name %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    <% if @game.categories.length > 0 %>
+    <ul class="game-list">
+      <h3><b>Mechanics:</b></h3>
+      <% @game.tags.each do |tag| %>
+      <li class=""><%= tag.name %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+
+  <% if @game.comments.length > 0 %>
+  <div class="col-md-3 center-in-div">
     <ul>
       <h3><b>Comments:</b></h3>
       <% @game.comments.each do |comment| %>
-      <li class="norm-game-font"><%= comment.text %>    by: <%= comment.commenter.username %>
+      <li class=""><%= comment.text %>    by: <%= comment.commenter.username %>
         <% if current_user && comment.commenter_id == current_user.id %>
-          <%= link_to "Edit", edit_game_comment_path(@game, comment) %>
-          <%= link_to 'Delete', [@game, comment],
-              method: :delete %>
+        <%= link_to "Edit", edit_game_comment_path(@game, comment) %>
+        <%= link_to 'Delete', [@game, comment],
+        method: :delete %>
         <% end %>
       </li>
       <% end %>
+      <p class="comment-p"><%= link_to "Add Comment", new_game_comment_path(@game) %></p>
     </ul>
+
   </div>
+  <% end %>
+
 </div>
-<% end %>
-<% if authorized(@game.creator_id) %>
-  <%= link_to "Edit Game", edit_game_path(@game) %>
-<% end %>
-</div>
+
+
