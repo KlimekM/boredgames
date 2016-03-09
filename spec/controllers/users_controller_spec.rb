@@ -78,4 +78,48 @@ describe UsersController do
     end
   end
 
+  describe '#show' do
+  	it 'creates a new game instance' do
+      get :show, id: user.id
+      expect(assigns(:user)).to be_a(User)
+    end
+
+    it 'goes to the show page when a user id is found' do
+      get :show, id: user.id
+      expect(response).to render_template(:show)
+    end
+
+    it 'creates a new game instance' do
+      get :show, id: 2
+      expect(response).to redirect_to('/')
+    end
+  end
+
+  describe '#edit' do
+  	it 'finds the right user' do
+  		get :edit, id: user.id
+  		expect(assigns(:user)).to eq(user)
+  	end
+  end
+
+  describe '#update' do
+		it 'finds the right user' do
+			post :create, user: {first_name: 'Tyler', last_name: 'Mac', username: 'tyler', password: 'password'}
+			post :update, id: user.id, user: {first_name: 'Tyler', last_name: 'Mac', username: 'tyler', password: 'password'}
+			expect(assigns(:user)).to be_a(User)
+  	end
+
+  	it 'updates information about the user' do
+			post :create, user: {first_name: 'Tyler', last_name: 'Mac', username: 'tyler', password: 'password'}
+			post :update, id: user.id, user: {first_name: 'Tyty', last_name: 'Mac', username: 'tyler', password: 'password'}
+			expect(assigns(:user).first_name).to eq('Tyty')
+  	end
+
+  	it 'updates information about the user' do
+			post :create, user: {first_name: 'Tyler', last_name: 'Mac', username: 'tyler', password: 'password'}
+			post :update, id: user.id, user: {first_name: '', last_name: 'Mac', username: 'tyler', password: 'password'}
+			expect(response).to render_template(:edit)
+  	end
+  end
+
 end
