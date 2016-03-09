@@ -1,13 +1,19 @@
-<td class="game-card col-sm-4">
-	<a href="<%= game_path(game) %>"><img src="<%= game.image_url %>"></a>
-		<h3><%= game.name %></h3>
-	<p>Rating: <%= game.points %></p>
-	<p>Players: <%= game.player_range %></p>
-	<p>Play Time: <%= game.play_time %></p>
-	<a href="#openModal-<%= game.name %>">Expand</a>
+<td class="game-card">
+	<h3><%= game.name %></h3>
 
-	<%= render "games/vote", game: game %>
-	<%= render "games/add_to_collection", game: game %>
+	<div class="game-image">
+		<a href="<%= game_path(game) %>"><img src="<%= game.image_url %>"></a>
+		<p><a href="#openModal-<%= game.name %>">Expand</a></p>
+	</div>
+
+	<p>Rating: <%= game.points %></p>
+	<p><%= game.player_range %> players</p>
+	<p><%= game.play_time %></p>
+
+	<section class='game-card-buttons'>
+		<%= render "games/vote", game: game %>
+		<%= render "games/add_to_collection", game: game %>
+	</section>
 
 	<div id="openModal-<%= game.name %>" class="modalDialog">
 		<div>
