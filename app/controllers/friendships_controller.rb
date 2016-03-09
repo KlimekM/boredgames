@@ -1,6 +1,5 @@
 class FriendshipsController < ApplicationController
   def create
-    puts params
     current_user = User.find(params[:current_user])
     @user = User.find(params[:id])
     current_user.friends << @user
