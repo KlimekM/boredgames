@@ -1,7 +1,10 @@
 <h2>Games</h2>
-    <% @found_games.each do |game| %>
-    <li>
-      <%= render partial: '/games/game', locals: { game: game } %>
-    </li>
-
+<table class="game-display-table">
+    <% until @found_games.empty? %>
+      <tr class="row">
+        <% 3.times do  %>
+          <%= render "game", game: @found_games.shift %>
+        <% end %>
+      </tr>
     <% end %>
+  </table>
