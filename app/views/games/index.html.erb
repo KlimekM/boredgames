@@ -1,5 +1,5 @@
-<div>
-  <h2>Highest-Rated</h2>
+<div id="all-cards">
+  <h2 class='main-page-headers'>Highest-Rated</h2>
 
   <table class="game-display-table">
     <% until @popular_games.empty? %>
@@ -11,7 +11,7 @@
     <% end %>
   </table>
 
-  <h2>Recently Added</h2>
+  <h2 class='main-page-headers'>Recently Added</h2>
 
   <table class="game-display-table">
     <% until @newest_games.empty? %>
