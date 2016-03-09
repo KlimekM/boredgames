@@ -5,7 +5,7 @@
 <h2>Friends</h2>
 <ul>
 	<% current_user.friends.each do |friend| %>
-	<li><%= link_to "#{friend.username}", user_path(friend) %> <%= link_to "Remove Friend", friendship_path(id: current_user.id, friend: friend), method: :delete %></li>
+	<li><%= link_to "#{friend.username}", user_path(friend) %> <span class="remove-friend"><%= link_to "Remove Friend", friendship_path(id: current_user.id, friend: friend), method: :delete %></span></li>
 	<% end %>
 </ul>
 <% elsif current_user.friends.include?(user) %>
