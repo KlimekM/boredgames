@@ -35,10 +35,22 @@
 
 	<div id="profile-games">
 		<h2>Games</h2>
-		<ul>
+		<!-- turn active record object into array for easier manipulation -->
+		<% user_collection = [] %>
 		<% @user.games.each do |game| %>
-			<%= render partial: '/games/game', locals: { game: game } %>
+			<% user_collection << game %>
 		<% end %>
-		</ul>
+
+		<table>
+    <% until user_collection.empty? %>
+      <tr class="row">
+        <% 3.times do  %>
+        	<% if user_collection.first %>
+        		<%= render partial: '/games/game', locals: { game: user_collection.shift } %>
+        	<% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
 	</div>
 </div>
