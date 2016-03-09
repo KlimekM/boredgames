@@ -1,18 +1,18 @@
 <div>
   <section>
+    <h2>Highest-Rated</h2>
     <ul>
-      <h2>Highest-Rated</h2>
         <% @popular_games.each do |game| %>
-          <li><%= render "game", game: game %></li>
+          <%= render "game", game: game %>
         <% end %>
     </ul>
   </section>
 
   <section>
+    <h2>Recently Added</h2>
     <ul>
-      <h2>Recently Added</h2>
         <% @newest_games.each do |game| %>
-          <li><%= render "game", game: game %></li>
+          <%= render "game", game: game %>
         <% end %>
     </ul>
   </section>
