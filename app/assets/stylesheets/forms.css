@@ -1,7 +1,6 @@
 .add-game-form {
   width: 80%;
   margin: 0 auto;
-  /*background-color: pink;*/
 }
 
 .add-game-form input, .add-game-form textarea {
@@ -15,7 +14,7 @@
   text-align: right;
 }
 
-.add-game-form input[type=submit] {
+.add-game-form input[type=submit], .add-comment-form input[type=submit] {
   margin: 10px 28%;
   width: 40%;
   padding: 10px;
@@ -27,5 +26,15 @@
   text-align: center;
   margin-top: 5%;
   margin-bottom: 2%;
+}
 
+.add-comment-form {
+  margin: 0 auto;
+  text-align: center;
+}
+.add-comment-form input[type=text]{
+  width: 80%;
+  margin: 10px auto;
+  /*padding: 5px;*/
+  height: 30px;
 }
