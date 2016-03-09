@@ -3,7 +3,8 @@ require 'spec_helper'
 describe GamesController do
 
   let(:user) {User.create!(first_name: 'John', last_name: "Doe", username: "john123", password: 'password ' )}
-  let(:game) {Game.create!(name: 'Test Game', description: 'blahblahblah', release_year: 1984)}
+  let(:usertwo) {User.create!(first_name: 'John', last_name: "Doe", username: "john123", password: 'password ' )}
+  let(:game) {Game.create!(name: 'Test Game', description: 'blahblahblah', release_year: 1984, creator_id: user.id)}
 
   # def create_vote(value)
   #   post :create, user_id: user.id, game_id: game.id, value: value
@@ -22,9 +23,15 @@ describe GamesController do
       expect(assigns(:game)).to be_a(Game)
     end
 
+    it 'renders the new template again if the game is not created' do
+      session[:user_id] = user.id
+      post :create, game: { name: 'Test Game', release_year: 1984 }
+      expect(response).to render_template(:new)
+    end
+
   end
 
-  describe 'new' do
+  describe '#new' do
     it 'creates a new game instance' do
       session[:user_id] = user.id
       get :new
@@ -47,61 +54,57 @@ describe GamesController do
     it 'renders the edit page for the user' do
       session[:user_id] = user.id
       get :edit, id: game.id
-      expect(response).to have_http_status(200)
+      expect(response).to render_template(:edit)
     end
 
     it 'redirects to game path if its a different user' do
-
+      session[:user_id] = usertwo.id
+      get :edit, id: game.id
+      expect(response).to redirect_to(game)
     end
 
   end
 
-  #   it "creates a vote associated with a game" do
-  #     create_vote(1)
-  #     expect(Vote.last.game_id).to eq(game.id)
-  #   end
+  describe '#show' do
+    it 'assigns game to the right game' do
+      get :show, id: game.id
+    end
+  end
 
-  #   it "upvotes with value of 1" do
-  #     create_vote(1)
-  #     expect(Vote.last.value).to eq(1)
-  #   end
+  describe '#update' do
+    it 'assigns game to the right game' do
+      session[:user_id] = user.id
+      put :update, id: game.id, game: {name: 'Test Game', description: 'blahblahblah', release_year: 1984, creator_id: user.id}
+      expect(assigns(:game)).to eq(game)
+    end
 
-  #   it "increases game's total points with upvote" do
-  #     create_vote(1)
-  #     expect(game.points).to eq(1)
-  #   end
+    it 'updates attributes when something changes' do
+      session[:user_id] = user.id
+      put :update, id: game.id, game: {name: 'Fun Game', description: 'blahblahblah', release_year: 1984, creator_id: user.id}
+      expect(assigns(:game).name).to eq('Fun Game')
+    end
 
-  #   it "downvotes with value of -1" do
-  #     create_vote(-1)
-  #     expect(Vote.last.value).to eq(-1)
-  #   end
+    it 'renders the show page when the user is authorized' do
+      session[:user_id] = user.id
+      put :update, id: game.id, game: {name: 'Test Game', description: 'blahblahblah', release_year: 1984, creator_id: user.id}
+      expect(response).to render_template(:show)
+    end
 
-  #   it "decreases game's total points with downvote" do
-  #     create_vote(1)
-  #     create_vote(1)
-  #     create_vote(1)
-  #     create_vote(-1)
-  #     expect(game.points).to eq(2)
-  #   end
+    it 'renders the edit page again when the user is authorized' do
+      session[:user_id] = usertwo.id
+      put :update, id: game.id, game: {name: 'Test Game', description: 'blahblahblah', release_year: 1984, creator_id: user.id}
+      expect(response).to render_template(:edit)
+    end
+  end
 
-  #   it "redirects to the root page" do
-  #     create_vote(1)
-  #     expect(response).to redirect_to(root_path)
-  #   end
-  # end
+  describe '#search' do
+    it 'finds a list of games based on a query' do
+      create_game
+      get :search, query: 'est'
+      puts assigns(:found_games)
+      expect(assigns(:found_games)).to include(assigns(:game))
+    end
+  end
 
-  # describe "destroy" do
-  #   it "deletes a vote" do
-  #     create_vote(1)
-  #     delete :destroy, user_id: user.id, game_id: game.id, id: Vote.last.id
-  #     expect(Vote.find_by(voter_id: user.id)).to be nil
-  #   end
-
-  #   it "redirects to the root page" do
-  #     create_vote(1)
-  #     delete :destroy, user_id: user.id, game_id: game.id, id: Vote.last.id
-  #     expect(response).to redirect_to(root_path)
-  #   end
-  # end
 
 end
