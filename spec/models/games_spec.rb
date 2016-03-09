@@ -49,5 +49,11 @@ describe Game do
       vote2 = Vote.create(voter_id: user.id, game_id: game.id, value: 1 )
       expect(Game.popular_games.first).to eq (game)
     end
+
+    it 'sorts popular games ahead of unpopular ones' do
+      game2 = Game.create(name: 'Chess', release_year: 1988, player_range: '1-4', publisher: 'Harvey', play_time: '45 minutes', description: 'real good', creator_id: 3)
+      game = Game.create(name: 'Checkers', release_year: 1988, player_range: '1-4', publisher: 'Harvey', play_time: '45 minutes', description: 'real good', creator_id: user.id)
+      expect(Game.newest_games.first).to eq (game)
+    end
   end
 end

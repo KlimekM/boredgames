@@ -7,8 +7,12 @@ class CommentsController < ApplicationController
   def create
     @user = User.find(params[:comment][:user_id])
     @game = Game.find(params[:game_id])
-    @game.comments.create(text: params[:comment][:text], commenter_id: params[:comment][:user_id])
-    redirect_to @game
+    @comment = @game.comments.create(text: params[:comment][:text], commenter_id: @user.id)
+    if @comment.save
+      redirect_to @game
+    else
+      render 'new'
+    end
   end
 
   def edit
