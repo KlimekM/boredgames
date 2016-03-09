@@ -190,6 +190,35 @@
         null,
         null
       ],
+      "/Users/KlimekM/Desktop/phase-3/boredgames/app/controllers/sessions_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        4,
+        null,
+        null
+      ],
       "/Users/KlimekM/Desktop/phase-3/boredgames/app/controllers/users_controller.rb": [
         1,
         1,
@@ -342,6 +371,11 @@
         1,
         null
       ],
+      "/Users/KlimekM/Desktop/phase-3/boredgames/app/models/friendship.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/KlimekM/Desktop/phase-3/boredgames/app/models/category.rb": [
         1,
         1,
@@ -353,42 +387,8 @@
         1,
         1,
         null
-      ],
-      "/Users/KlimekM/Desktop/phase-3/boredgames/app/models/friendship.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/KlimekM/Desktop/phase-3/boredgames/app/controllers/sessions_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
       ]
     },
-    "timestamp": 1457542713
+    "timestamp": 1457549928
   }
 }

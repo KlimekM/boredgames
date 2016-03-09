@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     if @user = User.find_by(username: user_params[:username]).try(:authenticate, user_params[:password])
       session[:user_id] = @user.id
-      render 'users/show'
+      redirect_to @user
     else
       @user = User.new
       @error = "Username or password is incorrect"
