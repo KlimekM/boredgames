@@ -8,6 +8,6 @@ module SessionsHelper
   end
 
   def authorized(creator_id)
-    current_user.id == creator_id
+    current_user && current_user.id == creator_id
   end
 end

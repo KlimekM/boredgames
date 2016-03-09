@@ -56,7 +56,7 @@ class GamesController < ApplicationController
   end
 
   def search
-    @found_games = Game.where('name LIKE ?', "%#{params[:query]}%").all
+    @found_games = Game.where('name LIKE ?', "%#{params[:query]}%").all.to_a
   end
 
   private
@@ -74,7 +74,7 @@ class GamesController < ApplicationController
     end
 
     def authorized(creator_id)
-      current_user.id == creator_id
+      current_user && current_user.id == creator_id
     end
 
 end
