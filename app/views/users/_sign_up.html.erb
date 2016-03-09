@@ -1,5 +1,5 @@
 <% if @user.errors.any? %>
-  <ul>
+<ul class='errors'>
   <% for message_error in @user.errors.full_messages %>
     <li> <%= message_error %></li>
   <% end %>
