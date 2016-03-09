@@ -21,4 +21,10 @@ class Game < ActiveRecord::Base
       game_b.points <=> game_a.points
     end
   end
+
+  def self.newest_games
+    Game.all.sort do |game_a, game_b|
+      game_b.created_at <=> game_a.created_at
+    end
+  end
 end

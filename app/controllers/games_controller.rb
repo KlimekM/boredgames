@@ -1,8 +1,9 @@
 class GamesController < ApplicationController
   def index
+
     @vote = Vote.new
     @popular_games = Game.popular_games.slice(0,24)
-    @newest_games = Game.order(created_at: :desc).limit(24)
+    @newest_games = Game.newest_games.slice(0,24)
   end
 
   def new
@@ -19,8 +20,8 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.creator_id = current_user.id
-
     if @game.save
+      current_user.games << @game
       render 'show'
     else
       render 'new'
